@@ -1,4 +1,4 @@
-# flashing-card
+# Flashing Card
 Flashing Card Application in Tkinter - Python to Learn French words.
 - Run main.py to start application
 - One French word will be displayed on card 
