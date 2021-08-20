@@ -1,2 +1,2 @@
 # flashing-card
-Flashing Card Application in Tkinter to Learn French
+Flashing Card Application in Tkinter - Python to Learn French words.
