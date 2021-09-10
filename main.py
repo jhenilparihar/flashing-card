@@ -25,7 +25,7 @@ def update():
 def word_generate():
     global word_dict, index, data
     try:
-        index = random.randint(0, len(data))-1
+        index = random.randint(0, len(data)) - 1
         word_dict = data[index]
     except IndexError:
         print("You learnt all these French Words!")
@@ -44,13 +44,15 @@ def flip_card_now():
 
     right_button["state"] = "disabled"
     wrong_button["state"] = "disabled"
-    
+
     window.after(3000, flip_card)
-    
+
+
 def right():
     data.pop(index)
     update()
     flip_card_now()
+
 
 def wrong():
     flip_card_now()
@@ -60,7 +62,7 @@ def flip_card():
     canvas.itemconfig(image, image=back_image)
     canvas.itemconfig(title, text="English", fill="black")
     canvas.itemconfig(word, text=word_dict["English"], fill="black")
-    
+
     right_button["state"] = "normal"
     wrong_button["state"] = "normal"
 
@@ -81,18 +83,16 @@ image = canvas.create_image(400, 263, image=front_image)
 
 title = canvas.create_text(400, 150, text='French', font=('Arial', 30, 'italic'))
 word = canvas.create_text(400, 263, text=word_generate()['French'], font=('Arial', 60, 'bold'))
-    
-canvas.place(relx = 0.5, rely=0.01, anchor=N)
 
+canvas.place(relx=0.5, rely=0.01, anchor=N)
 
 wrong_image = PhotoImage(file='images/wrong.png')
 wrong_button = Button(image=wrong_image, height=99, width=100, highlightthickness=0, border=0, command=wrong)
-wrong_button.place(relx = 0.25, rely=0.88, anchor=N)
+wrong_button.place(relx=0.25, rely=0.88, anchor=N)
 
 right_image = PhotoImage(file='images/right.png')
 right_button = Button(image=right_image, height=99, width=100, highlightthickness=0, border=0, command=right)
-right_button.place(relx = 0.75, rely=0.88, anchor=N)
-
+right_button.place(relx=0.75, rely=0.88, anchor=N)
 
 flip_card_now()
 
